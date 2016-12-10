@@ -1,0 +1,42 @@
+    <div class="container">
+        <div style="height: 50px;"></div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>
+                    <span style="font-size: 17px;">Bricky Studios'</span><br />
+                    <span style="font-size: 28px; display: block; margin-top: -6px;"><b>ThongTinTuyenSinh</b></span>
+                </h2>
+            </div>
+
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login-panel panel panel-default panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <form role="form" ng-submit="LoginCtrl.login();">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="LoginCtrl.loginInfo.username" placeholder="Username" name="username" type="username" autofocus ng-disabled="LoginCtrl.isLoggingIn">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="LoginCtrl.loginInfo.password" placeholder="Password" name="password" type="password" ng-disabled="LoginCtrl.isLoggingIn">
+                                </div>
+                                <div class="checkbox" style="display: block; margin-top: -5px; margin-bottom: 15px;">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me" ng-disabled="LoginCtrl.isLoggingIn"> Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button class="btn btn-block ng-class:{'btn-primary': !LoginCtrl.isLoggingIn, 'btn-warning': (LoginCtrl.isLoggingIn && !LoginCtrl.isLoggedIn), 'btn-success': LoginCtrl.isLoggedIn}" ng-disabled="LoginCtrl.isLoggingIn">
+                                    {{ (LoginCtrl.isLoggingIn === true ? 'Logging In ' : 'Login ' ) }} {{ ( LoginCtrl.loginInfo.username ? ' as ' + LoginCtrl.loginInfo.username : '' ) }}
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
