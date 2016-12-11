@@ -1,0 +1,43 @@
+<!--<div class="col-lg-12">-->
+    <div class="col-lg-8">
+        <form class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon" style="border: none">
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+
+                <input class="form-control" ng-model="controller.search.q" placeholder="Search..." ng-change="controller.reloadPage(1);" />
+                
+                <span class="input-group-btn">
+                    <input class="btn btn-danger" value="Clear" ng-show="controller.search.q != ''" ng-click="controller.search.q = ''; controller.reloadPage(1);" style="width: 70px;" />
+                </span>
+            </div>
+        </form>
+
+        <div class="col-lg-12">
+            Showing <b>{{ controller.paging.pageSize }}</b> results ({{ controller.paging.pageSize * (controller.paging.currentPage - 1) }} - {{ (controller.paging.pageSize * controller.paging.currentPage) - 1 }}) of total <b>{{ (controller.paging.total) ? controller.paging.total : '(loading)..' }}</b>.
+        </div>
+    </div>
+
+    <div class="col-lg-4 sort-by" style="line-height: 180%;">
+        <span class="label label-primary">Sort by</span> <select ng-model="controller.search.sortBy" ng-options="option.value as option.label for option in controller.search.sortByOptions" ng-change="controller.reloadPage(1);"></select>
+
+        <select ng-model="controller.search.sort" ng-change="controller.reloadPage(1);">
+            <option value="DESC">DESC</option>
+            <option value="ASC">ASC</option>
+        </select><br />
+
+
+        <span class="label label-warning">Items per page</span> <select ng-model="controller.search.itemsPerPage" ng-change="controller.reloadPage(1);">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="250">250</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+        </select> 
+    </div>
+<!--</div>-->

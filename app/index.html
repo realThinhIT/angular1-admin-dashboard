@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="bower_components/eeh-navigation/dist/eeh-navigation.css" />
         <link rel="stylesheet" href="bower_components/angular-toasty/dist/angular-toasty.css" />
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <link rel="stylesheet" href="bower_components/Bootflat/bootflat/css/bootflat.css" />
+        <link rel="stylesheet" href="bower_components/Bootflat/bootflat/css/bootflat.min.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -36,8 +38,10 @@
             <div ng-view=""></div>
         </div>
 
-        <div class="footer">
+        <div class="footer1">
+            <hr />
             (c) 2016 ThinhIT (thinhit.net)
+            <div style="height: 10px;"></div>
         </div>
 
 
@@ -62,6 +66,9 @@
         <script src="bower_components/angular-toasty/dist/angular-toasty.js"></script>
         <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
         <script src="bower_components/angular-paging/dist/paging.js"></script>
+        <script src="bower_components/Bootflat/bootflat/js/icheck.min.js"></script>
+        <script src="bower_components/Bootflat/bootflat/js/jquery.fs.selecter.min.js"></script>
+        <script src="bower_components/Bootflat/bootflat/js/jquery.fs.stepper.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -75,12 +82,11 @@
         <script src="scripts/services/common/_toastSrv.js"></script>
         <script src="scripts/services/common/_httpSrv.js"></script>
         <script src="scripts/services/authentication/authenticationSrv.js"></script>
+        <script src="scripts/services/users/userSrv.js"></script>
 
         <script src="scripts/controllers/authentication/loginCtrl.js"></script>
         <script src="scripts/controllers/home/homeCtrl.js"></script>
         <script src="scripts/controllers/users/readUsersCtrl.js"></script>
-
-        <script src="scripts/services/authentication/authenticationSrv.js"></script>
         <!-- endbuild -->
     </body>
 </html>

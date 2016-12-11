@@ -49,4 +49,8 @@ angular
                 weight: -10,
                 href: '#/my-account'
             });
+    }])
+
+    .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.latencyThreshold = 0;
     }]);

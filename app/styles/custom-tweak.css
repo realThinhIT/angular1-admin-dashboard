@@ -12,13 +12,17 @@ body {
     min-width: 80% !important;
 }
 
-.footer {
-    margin-top: 50px;
+.footer1 {
+    margin-top: 100px;
     color: gray;
     text-align: center;
     font-size: 12px;
 }
 
+/* Loading bar */
+#loading-bar .bar {
+  background: darkred !important;
+}
 
 /**
 * LOGIN
@@ -26,4 +30,17 @@ body {
 
 .login-panel {
     margin-top: 10px !important;
+}
+
+/**
+* CONTROLLER
+*/
+.sort-by {
+    text-align: right !important;
+    float: right !important;
+}
+
+.page-pagination {
+    float: right !important;
+    text-align: right !important;
 }

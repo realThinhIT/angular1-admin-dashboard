@@ -21,7 +21,7 @@ angular
         'angular-toasty',
         'eehNavigation',
         'ui.router',
-        'cfp.loadingBar',
+        'angular-loading-bar',
         'bw.paging'
     ])
 

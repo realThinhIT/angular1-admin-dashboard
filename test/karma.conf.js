@@ -39,6 +39,9 @@ module.exports = function(config) {
       'bower_components/angular-toasty/dist/angular-toasty.js',
       'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/angular-paging/dist/paging.js',
+      'bower_components/Bootflat/bootflat/js/icheck.min.js',
+      'bower_components/Bootflat/bootflat/js/jquery.fs.selecter.min.js',
+      'bower_components/Bootflat/bootflat/js/jquery.fs.stepper.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

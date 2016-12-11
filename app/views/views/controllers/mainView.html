@@ -1,16 +1,60 @@
 <div class="row">
-    <h1>{{ controller.controllerTitle }}</h1>
+    <h2>{{ controller.controllerTitle }}</h2>
 </div>
 
 <div class="row">
     {{ (controller.mainActions.length > 0) ? 'Actions:' : '' }} 
     <span ng-repeat="(key, action) in controller.mainActions">
-        <a class="btn btn-{{ (action.class) ? action.class : 'default'}} btn-sm" ng-href="{{ action.link }}">{{ action.text }}</a>
+        <a class="btn btn-{{ (action.class) ? action.class : 'primary'}} btn-sm" ng-href="{{ action.link }}">{{ action.text }}</a>
     </span>
 
     <hr />
 </div>
 
+<div class="row" ng-if="controller.isSearchFuncEnabled === true">
+    <div ng-include="'views/views/controllers/listPaginationAndSearch.html'"></div>
+
+    <!--<div class="col-lg-12">-->
+        <div class="col-lg-12 page-pagination" role="pagination">
+            <div paging
+                page="controller.paging.currentPage" 
+                page-size="controller.paging.pageSize" 
+                total="controller.paging.total"
+                disabled="false"
+                scroll-top="false" 
+                hide-if-empty="true"
+                show-prev-next="false"
+                show-first-last="false"
+                paging-action="controller.reloadPage(page)"
+                ng-init="controller.paging.currentPage = 1; controller.paging.pageSize = 25; controller.paging.total = 0;"
+                >
+            </div>
+        <!--</div>-->
+
+        <div style="height: 20px; display: block" ng-show="controller.paging.total < controller.paging.pageSize"></div>
+    </div>
+</div>
+
 <div class="row">
     <div ng-include="controller.templateUrl"></div>
+</div>
+
+<div class="row" ng-if="controller.isSearchFuncEnabled === true">
+    <!--<div class="col-lg-12">-->
+        <div class="col-lg-12 page-pagination" role="pagination">
+            <div paging
+                page="controller.paging.currentPage" 
+                page-size="controller.paging.pageSize" 
+                total="controller.paging.total"
+                disabled="false"
+                scroll-top="false" 
+                hide-if-empty="true"
+                show-prev-next="false"
+                show-first-last="false"
+                paging-action="controller.reloadPage(page)"
+                ng-init="controller.paging.currentPage = 1; controller.paging.pageSize = 25; controller.paging.total = 0;"
+                >
+            </div>
+        </div>
+    <!--</div>-->
 </div>
