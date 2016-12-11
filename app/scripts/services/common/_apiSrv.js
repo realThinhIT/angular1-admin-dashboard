@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('thongTinTuyenSinhBackend')
+        .module('ndtAngular1AdminDashboard')
         .service('_api', _api);
 
     _api.$inject = ['_c'];

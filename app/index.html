@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="thongTinTuyenSinhBackend">
+<html ng-app="ndtAngular1AdminDashboard">
     <head>
         <meta charset="utf-8">
         <title ng-bind="PageTitle.get()"></title>
@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/eeh-navigation/dist/eeh-navigation.css" />
         <link rel="stylesheet" href="bower_components/angular-toasty/dist/angular-toasty.css" />
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -29,7 +30,16 @@
         <![endif]-->
 
         <toasty></toasty>
-        <div ng-view=""></div>
+        <eeh-navigation-navbar menu-name="'acp'" brand-text="'ndtAngular1AdminDashboard'"></eeh-navigation-navbar>
+
+        <div class="container" style="margin-top: 10px;">
+            <div ng-view=""></div>
+        </div>
+
+        <div class="footer">
+            (c) 2016 ThinhIT (thinhit.net)
+        </div>
+
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
@@ -50,20 +60,25 @@
         <script src="bower_components/eeh-navigation/dist/eeh-navigation.js"></script>
         <script src="bower_components/eeh-navigation/dist/eeh-navigation.tpl.js"></script>
         <script src="bower_components/angular-toasty/dist/angular-toasty.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-paging/dist/paging.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+        <script src="scripts/app.js"></script>  
         <script src="scripts/config.js"></script>
 
         <script src="scripts/services/common/_apiSrv.js"></script>
         <script src="scripts/services/common/_pageTitleSrv.js"></script>
         <script src="scripts/services/common/_cookieSrv.js"></script>
         <script src="scripts/services/common/_toastSrv.js"></script>
+        <script src="scripts/services/common/_httpSrv.js"></script>
         <script src="scripts/services/authentication/authenticationSrv.js"></script>
 
         <script src="scripts/controllers/authentication/loginCtrl.js"></script>
+        <script src="scripts/controllers/home/homeCtrl.js"></script>
+        <script src="scripts/controllers/users/readUsersCtrl.js"></script>
 
         <script src="scripts/services/authentication/authenticationSrv.js"></script>
         <!-- endbuild -->

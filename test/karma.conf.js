@@ -37,6 +37,8 @@ module.exports = function(config) {
       'bower_components/eeh-navigation/dist/eeh-navigation.js',
       'bower_components/eeh-navigation/dist/eeh-navigation.tpl.js',
       'bower_components/angular-toasty/dist/angular-toasty.js',
+      'bower_components/angular-loading-bar/build/loading-bar.js',
+      'bower_components/angular-paging/dist/paging.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

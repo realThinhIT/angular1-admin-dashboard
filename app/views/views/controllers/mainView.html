@@ -1,0 +1,16 @@
+<div class="row">
+    <h1>{{ controller.controllerTitle }}</h1>
+</div>
+
+<div class="row">
+    {{ (controller.mainActions.length > 0) ? 'Actions:' : '' }} 
+    <span ng-repeat="(key, action) in controller.mainActions">
+        <a class="btn btn-{{ (action.class) ? action.class : 'default'}} btn-sm" ng-href="{{ action.link }}">{{ action.text }}</a>
+    </span>
+
+    <hr />
+</div>
+
+<div class="row">
+    <div ng-include="controller.templateUrl"></div>
+</div>

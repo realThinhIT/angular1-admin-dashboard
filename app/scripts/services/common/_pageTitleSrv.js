@@ -2,13 +2,13 @@
 'use strict';
 
     angular
-        .module('thongTinTuyenSinhBackend')
+        .module('ndtAngular1AdminDashboard')
         .service('_pageTitle', _pageTitle);
 
     _pageTitle.$inject = [];
     function _pageTitle() {
         var pageTitle = '';
-        var defaultTitle = 'ThongTinTuyenSinh Backend';
+        var defaultTitle = 'ndtAngular1AdminDashboard';
 
         this.get = get;
         this.set = set;

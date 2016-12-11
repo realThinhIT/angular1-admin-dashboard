@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('thongTinTuyenSinhBackend'));
+  beforeEach(module('ndtAngular1AdminDashboard'));
 
   var AboutCtrl,
     scope;

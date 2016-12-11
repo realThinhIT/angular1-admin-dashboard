@@ -1,6 +1,29 @@
 /**
-LOGIN
+* GLOBAL
+*/
+
+body {
+    background-color: white !important;
+}
+
+.container {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    min-width: 80% !important;
+}
+
+.footer {
+    margin-top: 50px;
+    color: gray;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/**
+* LOGIN
 **/
+
 .login-panel {
     margin-top: 10px !important;
 }

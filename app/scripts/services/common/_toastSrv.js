@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('thongTinTuyenSinhBackend')
+        .module('ndtAngular1AdminDashboard')
         .service('_toast', _toast);
 
     _toast.$inject = ['toasty'];

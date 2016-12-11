@@ -338,7 +338,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'thongTinTuyenSinhBackend',
+          module: 'ndtAngular1AdminDashboard',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

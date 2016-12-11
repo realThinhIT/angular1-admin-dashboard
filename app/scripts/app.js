@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name thongTinTuyenSinhBackend
+ * @name ndtAngular1AdminDashboard
  * @description
- * # thongTinTuyenSinhBackend
+ * # ndtAngular1AdminDashboard
  *
  * Main module of the application.
  */
 angular
-    .module('thongTinTuyenSinhBackend', [
+    .module('ndtAngular1AdminDashboard', [
         'ngAnimate',
         'ngAria',
         'ngCookies',
@@ -18,21 +18,33 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'angular-toasty'
+        'angular-toasty',
+        'eehNavigation',
+        'ui.router',
+        'cfp.loadingBar',
+        'bw.paging'
     ])
 
     // configurations
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl',
-                controllerAs: 'main'
+                templateUrl: 'views/views/home/index.html',
+                controller: 'HomeController',
+                controllerAs: 'HomeCtrl'
             })
             .when('/login', {
                 templateUrl: 'views/views/common/login.html',
                 controller: 'LoginController',
                 controllerAs: 'LoginCtrl'
+            })
+            .when('/users', {
+                templateUrl: 'views/views/controllers/mainView.html',
+                controller: 'ReadUsersController',
+                controllerAs: 'controller'
+            })
+            .otherwise({
+                redirectTo: '/'
             });
     })
 
@@ -48,21 +60,73 @@ angular
     }])
 
     // at first run
-    .run(['$rootScope', '_pageTitle', '_cookie', '_c', '$http', 
-    function($rootScope, _pageTitle, _cookie, _c, $http) {
+    .run(['$rootScope', '_pageTitle', '_cookie', '_c', '$http', 'AuthenticationService', '$location', '_toast', '$interval', 'eehNavigation',
+    function($rootScope, _pageTitle, _cookie, _c, $http, AuthenticationService, $location, _toast, $interval, eehNavigation) {
         $rootScope.PageTitle = _pageTitle;
+        $rootScope.loggedUser = AuthenticationService.getCurrentUserInfo();
+        $rootScope.loginToken = AuthenticationService.getCurrentLoginToken();
 
         // http authorization
         $rootScope.updateDefaultHttpHeader = function() {
-            var loginSession = _cookie.getLoginSession();
+            $rootScope.loginToken = AuthenticationService.getCurrentLoginToken();
 
             $http.defaults.headers.common['X-Api-Key'] = _c.api.API_KEY;
 
-            if (loginSession !== undefined) {
-                $http.defaults.headers.common.Authorization = 'Bearer ' + loginSession.accessToken.token;
+            if ($rootScope.loginToken !== undefined) {
+                $http.defaults.headers.common.Authorization = 'Bearer ' + $rootScope.loginToken.loginToken;
             } else {
                 $http.defaults.headers.common.Authorization = 'Basic unauthorized:forbidden';
             }
         }
         $rootScope.updateDefaultHttpHeader();
+
+        $rootScope.updateLoggedUserMenu = function() {
+            $(function() {
+                $('.menu-item-text:contains("_loggedInStatus")').removeClass("_loggedInStatus").addClass("_loggedInStatus");
+            });
+
+            // update the login status on menubar
+            if ($rootScope.loggedUser != undefined) {
+                $(function() {
+                    $('._loggedInStatus').text($rootScope.loggedUser.username);
+                });
+            } else {
+                $(function() {
+                    $('._loggedInStatus').text('Welcome back, please log in!');
+                });
+            }
+        }
+        $rootScope.updateLoggedUserMenu();
+
+        // check if the user is logged
+        $rootScope.checkLoginPage = function(event, next, current) {
+            // reload the credentials
+            $rootScope.loggedUser = AuthenticationService.getCurrentUserInfo();
+            $rootScope.updateDefaultHttpHeader();
+
+            // update menu bar
+            $rootScope.updateLoggedUserMenu();
+
+            // redirect if neccessary
+            if ($rootScope.loggedUser == undefined && ($location.path() !== '/login')) {
+                $location.path('/login');
+                _toast.fail('You have to log in first!');
+
+                _cookie.removeLoginSession();
+            }
+
+            if ($rootScope.loggedUser != undefined && ($location.path() === '/login')) {
+                $location.path('/');
+                _toast.success('You have authenticated, redirecting to the main page!');
+            }
+        }
+
+        $rootScope.$on('$routeChangeStart', function(event, next, current) {
+            $rootScope.checkLoginPage(event, next, current);
+        });
+
+        // the task will be performed every x seconds
+        $interval(function() {
+
+        }, 1000)
     }]);
