@@ -5,8 +5,8 @@
         .module('ndtAngular1AdminDashboard')
         .service('_http', _http);
 
-    _http.$inject = ['$http', '_c'];
-    function _http($http, _c) {
+    _http.$inject = ['$http', '_c', '$rootScope', '_cookie', '_toast'];
+    function _http($http, _c, $rootScope, _cookie, _toast) {
         this.exec = exec;
         
         ////////////////
@@ -37,9 +37,16 @@
                     data: (res.data) ? res.data : {}
                 });
             }, function (res) {
+                // authorization check
+                if (res.status === 401) {
+                    _toast.fail('Your session has been terminated! Please login again.');
+                    _cookie.removeLoginSession();
+                    $rootScope.checkLoginPage();
+                }
+
                 callback(true, {
-                    message: msgs[1],
-                    data: (msgErrs[(res.data != undefined && res.data.detailCode != undefined) ? res.data.detailCode : undefined]) ? msgErrs[res.data.detailCode] : ( (res.data) ? res.data : {} )
+                    message: (msgErrs[(res.data != undefined && res.data.detailCode != undefined) ? res.data.detailCode : undefined]) ? msgErrs[res.data.detailCode] : msgs[1],
+                    data: (res.data) ? res.data : {}
                 });
             })
         }

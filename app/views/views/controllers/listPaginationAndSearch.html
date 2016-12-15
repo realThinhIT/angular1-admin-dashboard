@@ -6,10 +6,10 @@
                     <i class="glyphicon glyphicon-search"></i>
                 </div>
 
-                <input class="form-control" ng-model="controller.search.q" placeholder="Search..." ng-change="controller.reloadPage(1);" />
-                
+                <input class="form-control" ng-model="controller.search.q" placeholder="Search..." ng-keyup="$event.keyCode == 13 && controller.reloadPage(1)" ng-change="controller.search.q === '' && controller.reloadPage(1)" />
+
                 <span class="input-group-btn">
-                    <input class="btn btn-danger" value="Clear" ng-show="controller.search.q != ''" ng-click="controller.search.q = ''; controller.reloadPage(1);" style="width: 70px;" />
+                    <input class="btn btn-danger" value="Clear" ng-if="controller.search.q != ''" ng-click="controller.search.q = ''; controller.reloadPage(1);" style="width: 70px;" />
                 </span>
             </div>
         </form>

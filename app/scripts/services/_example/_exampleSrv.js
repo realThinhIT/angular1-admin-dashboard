@@ -3,11 +3,11 @@
 
     angular
         .module('ndtAngular1AdminDashboard')
-        .service('UserService', UserService);
+        .service('_exampleService', _exampleService);
 
-    UserService.$inject = ['_http', '_api'];
-    function UserService(_http, _api) {
-        var API_RESOURCE = 'backend/users';
+    _exampleService.$inject = ['_http', '_api'];
+    function _exampleService(_http, _api) {
+        var API_RESOURCE = 'backend/_examples';
         
         ////////////////
 
@@ -18,7 +18,7 @@
             };
             _http.exec(httpReq, function (err, res) {
                 callback(err, res);
-            }, ['Retrieve users data successfully!', 'Retrieve users failed!']);
+            }, ['Retrieve _examples data successfully!', 'Retrieve _examples failed!']);
         }
 
         this.getOne = function (id, callback) {
@@ -28,7 +28,7 @@
             };
             _http.exec(httpReq, function (err, res) {
                 callback(err, res);
-            }, ['Retrieve user data successfully!', 'Retrieve user failed!']);
+            }, ['Retrieve _example data successfully!', 'Retrieve _example failed!']);
         }
 
         this.update = function (id, data, callback) {
@@ -39,7 +39,7 @@
             };
             _http.exec(httpReq, function (err, res) {
                 callback(err, res);
-            }, ['Update user data successfully!', 'Update user failed!']);
+            }, ['Update _example data successfully!', 'Update _example failed!']);
         }
 
         this.create = function (data, callback) {
@@ -50,7 +50,7 @@
             };
             _http.exec(httpReq, function (err, res) {
                 callback(err, res);
-            }, ['User created successfully!', 'There was an error while creating new user!']);
+            }, ['_example created successfully!', 'There was an error while creating new _example!']);
         }
 
         this.delete = function (id, callback) {
@@ -60,7 +60,7 @@
             };
             _http.exec(httpReq, function (err, res) {
                 callback(err, res);
-            }, ['User deleted successfully!', 'Delete user failed!']);
+            }, ['_example deleted successfully!', 'Delete _example failed!']);
         }
         }
 })();

@@ -7,8 +7,8 @@
 
     _c.$inject = [];
     function _c() {
-        this.exposedFn = exposedFn;
         this.api = {};
+        this.errorMessagesByCodes = {};
 
         ////////////////
         this.api = {
@@ -19,11 +19,10 @@
         this.errorMessagesByCodes = {
             INVALID_API_KEY: 'Invalid API Key! Please check your application.',
             INVALID_AUTH_TYPE: 'Invalid authentication type! Please check your application.',
-            INVALID_ACCESS_TOKEN: 'You\'re unauthenticated! Please login again.'
+            INVALID_ACCESS_TOKEN: 'You\'re unauthenticated! Please login again.',
+            DUPLICATED_USERNAME: 'The username you chose is duplicated! Please try another username.'
         }
         ////////////////
-
-        function exposedFn() { }
         }
 })();
 
@@ -47,7 +46,7 @@ angular
                 text: '_loggedInStatus',
                 iconClass: 'glyphicon-fire',
                 weight: -10,
-                href: '#/my-account'
+                href: '#/users/my-account'
             });
     }])
 

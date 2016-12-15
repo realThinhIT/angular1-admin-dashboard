@@ -19,6 +19,11 @@ body {
     font-size: 12px;
 }
 
+.height-30 {
+    display: block;
+    height: 15px;
+}
+
 /* Loading bar */
 #loading-bar .bar {
   background: darkred !important;
@@ -43,4 +48,18 @@ body {
 .page-pagination {
     float: right !important;
     text-align: right !important;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+.col-id {
+    width: 40px !important;
+    text-align: center !important;
+}
+
+.action-right {
+    display: block !important;
+    float: right !important;
 }

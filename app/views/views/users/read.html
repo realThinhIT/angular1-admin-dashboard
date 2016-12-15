@@ -1,20 +1,32 @@
-<div class="panel panel-default">
-    <div class="panel-heading">All Users</div>
+<div class="panel panel-info">
+    <div class="panel-heading"><b>ALL USERS</b></div>
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th class="col-id">ID</th>
                 <th>Username</th>
-                <th>Name</th>
-                <th>Email</th>
             </tr>
         </thead>
 
         <tbody>
             <tr ng-repeat="user in controller.tableData">
-                <td>{{ user.username }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
+                <td class="col-id">{{ user.userId }}</td>
+                <td>
+                    <span class="label label-{{ (user.usergroup === 'admin') ? 'danger' : (user.usergroup === 'user') ? 'info' : '' }}">{{ user.usergroup }}</span> {{ user.username }}
+
+                    <div ng-include="'editAction.html'" class="action-right"></div>    
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<script type="text/ng-template" id="editAction.html">
+    <a ng-href="#/users/{{ user.userId }}" class="btn btn-xs btn-warning">
+        <i class="fa fa-pencil"></i>
+    </a>
+
+    <a ng-dblclick="controller.deleteData(user.userId)" class="btn btn-xs btn-danger" uib-tooltip="Double click to delete this item." tooltip-placement="left">
+        <i class="fa fa-trash-o"></i>
+    </a>
+</script>

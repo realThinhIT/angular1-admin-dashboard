@@ -47,7 +47,7 @@
         }
 
         this.create = function (msg, title, type) {
-            this[type](msg, title.toUpperCase());
+            this[type](msg, ((title) ? title : '').toUpperCase());
         }
     }
 })();

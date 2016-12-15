@@ -20,6 +20,7 @@ angular
         'ngTouch',
         'angular-toasty',
         'eehNavigation',
+        'ui.bootstrap',
         'ui.router',
         'angular-loading-bar',
         'bw.paging'
@@ -27,6 +28,8 @@ angular
 
     // configurations
     .config(function($routeProvider) {
+        var mainView = 'views/views/controllers/mainView.html';
+        
         $routeProvider
             .when('/', {
                 templateUrl: 'views/views/home/index.html',
@@ -39,8 +42,18 @@ angular
                 controllerAs: 'LoginCtrl'
             })
             .when('/users', {
-                templateUrl: 'views/views/controllers/mainView.html',
+                templateUrl: mainView,
                 controller: 'ReadUsersController',
+                controllerAs: 'controller'
+            })
+            .when('/users/create', {
+                templateUrl: mainView,
+                controller: 'ModifyUserController',
+                controllerAs: 'controller'
+            })
+            .when('/users/:id', {
+                templateUrl: mainView,
+                controller: 'ModifyUserController',
                 controllerAs: 'controller'
             })
             .otherwise({

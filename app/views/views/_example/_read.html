@@ -1,0 +1,32 @@
+<div class="panel panel-info">
+    <div class="panel-heading"><b>ALL _EXAMPLES</b></div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="col-id">ID</th>
+                <th>Col1_Info</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="row in controller.tableData">
+                <td class="col-id">{{ row.rowId }}</td>
+                <td>
+                    {{ row.username }}
+
+                    <div ng-include="'editAction.html'" class="action-right"></div>    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/ng-template" id="editAction.html">
+    <a ng-href="#/_examples/{{ row.rowId }}" class="btn btn-xs btn-warning">
+        <i class="fa fa-pencil"></i>
+    </a>
+
+    <a ng-dblclick="controller.deleteData(row.rowId)" class="btn btn-xs btn-danger" uib-tooltip="Double click to delete this item." tooltip-placement="left">
+        <i class="fa fa-trash-o"></i>
+    </a>
+</script>
