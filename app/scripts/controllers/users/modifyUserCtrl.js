@@ -5,8 +5,8 @@
         .module('ndtAngular1AdminDashboard')
         .controller('ModifyUserController', ModifyUserController);
 
-    ModifyUserController.$inject = ['$rootScope', 'UserService', '$routeParams', '_toast', '$location'];
-    function ModifyUserController($rootScope, UserService, $routeParams, _toast, $location) {
+    ModifyUserController.$inject = ['$rootScope', 'UserService', '$routeParams', '_toast', '$location', '_cookie'];
+    function ModifyUserController($rootScope, UserService, $routeParams, _toast, $location, _cookie) {
         var vm = this;
         vm.retrieveData = retrieveData;
         vm.createData = createData;
@@ -47,6 +47,20 @@
                 if ($routeParams.id === 'my-account') {
                     $location.path('/users/' + $rootScope.loggedUser.userId);
                     return;
+                }
+
+                if ($routeParams.id === 'logout') {
+                    _cookie.removeLoginSession();
+                    $location.path('/login');
+                    return;
+                }
+
+                if (parseInt($routeParams.id) === $rootScope.loggedUser.userId) {
+                    vm.mainActions.push({
+                        text: 'Logout',
+                        link: '#/users/logout',
+                        class: 'danger'
+                    });
                 }
 
                 vm.isUpdating = true;
