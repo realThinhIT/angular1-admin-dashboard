@@ -80,7 +80,7 @@
 
         // EDIT THIS!: to delete existing data
         function deleteData(objectId) {
-            _updateService.delete(objectId, function (err, res) {
+            _exampleService.delete(objectId, function (err, res) {
                 _toast.create(res.message, null, (err) ? 'fail' : 'success');
 
                 if (!err) vm.reloadPage();
