@@ -380,7 +380,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'views/{,*/}{,*/}{,*/}*.*',
+            'sb-admin/{,*/}{,*/}{,*/}*.*'
           ]
         }, {
           expand: true,
@@ -462,7 +464,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
-    'ngtemplates',
+    // 'ngtemplates',
     'concat',
     'ngAnnotate',
     'copy:dist',
