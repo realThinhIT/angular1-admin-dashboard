@@ -25,7 +25,7 @@
             vm.mainActions = [
                 {
                     text: 'Manage Users',
-                    link: '#/users',
+                    link: '#!/users',
                 }
             ];
             vm.templateUrl = 'views/views/users/modify.html';
@@ -58,7 +58,7 @@
                 if (parseInt($routeParams.id) === $rootScope.loggedUser.userId) {
                     vm.mainActions.push({
                         text: 'Logout',
-                        link: '#/users/logout',
+                        link: '#!/users/logout',
                         class: 'danger'
                     });
                 }

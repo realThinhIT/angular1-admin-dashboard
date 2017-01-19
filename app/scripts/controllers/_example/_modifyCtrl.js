@@ -25,7 +25,7 @@
             vm.mainActions = [
                 {
                     text: 'Manage _examples',
-                    link: '#/_examples',
+                    link: '#!/_examples',
                 }
             ];
             vm.templateUrl = 'views/views/_examples/modify.html';
@@ -47,10 +47,9 @@
                 vm.isUpdating = true;
                 vm.controllerTitle = 'Update _example';
 
-                _exampleService.getOne({
-                    id: $routeParams.id
-                }, function (err, res) {
-                    vm.tableData = res.data.data[0];
+                _exampleService.getOne($routeParams.id, 
+                    function (err, res) {
+                        vm.tableData = res.data.data[0];
                 });
             }
         }

@@ -22,7 +22,7 @@
             vm.mainActions = [
                 {
                     text: 'Create new User',
-                    link: '#/users/create',
+                    link: '#!/users/create',
                 }
             ];
             vm.templateUrl = 'views/views/users/read.html';

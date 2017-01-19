@@ -34,19 +34,19 @@ angular
                 text: 'Home',
                 iconClass: 'glyphicon-home',
                 weight: -10,
-                href: '#/'
+                href: '#!/'
             })
             .menuItem('acp.users', {
                 text: 'Users',
                 iconClass: 'glyphicon-user',
                 weight: -10,
-                href: '#/users'
+                href: '#!/users'
             })
             .menuItem('acp.logged', {
                 text: '_loggedInStatus',
                 iconClass: 'glyphicon-fire',
                 weight: -10,
-                href: '#/users/my-account'
+                href: '#!/users/my-account'
             });
     }])
 
