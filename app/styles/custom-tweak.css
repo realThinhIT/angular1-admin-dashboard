@@ -52,6 +52,8 @@ body {
 
 td {
     vertical-align: middle !important;
+    padding-top: 9px !important;
+    padding-bottom: 8px !important;
 }
 
 .col-id {
@@ -62,4 +64,21 @@ td {
 .action-right {
     display: block !important;
     float: right !important;
+}
+
+.center-text {
+    text-align: center !important;
+}
+
+select {
+    padding: 1px 1px 1px 1px;
+}
+
+/**
+* FIXS
+**/
+td .label {
+    display: inline-block !important;
+    position: relative;
+    top: -2px;
 }

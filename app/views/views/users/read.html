@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th class="col-id">ID</th>
+                <th style="width: 60px;" class="center-text">Usergroup</th>
                 <th>Username</th>
             </tr>
         </thead>
@@ -11,8 +12,9 @@
         <tbody>
             <tr ng-repeat="user in controller.tableData">
                 <td class="col-id">{{ user.userId }}</td>
+                <td class="center-text"><span class="label label-{{ (user.usergroup == '1') ? 'danger' : (user.usergroup == '3') ? 'info' : '' }}">{{ (user.usergroup == '1') ? 'admin' : (user.usergroup == '3') ? 'user' : '' }}</span></td>
                 <td>
-                    <span class="label label-{{ (user.usergroup === 'admin') ? 'danger' : (user.usergroup === 'user') ? 'info' : '' }}">{{ user.usergroup }}</span> {{ user.username }}
+                    {{ user.username }}
 
                     <div ng-include="'editAction.html'" class="action-right"></div>    
                 </td>
