@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-    {{ (controller.mainActions.length > 0) ? 'Actions:' : '' }} 
+    <!--{{ (controller.mainActions.length > 0) ? 'Actions:' : '' }} -->
     <span ng-repeat="(key, action) in controller.mainActions">
         <a class="btn btn-{{ (action.class) ? action.class : 'primary'}} btn-sm" ng-href="{{ action.link }}">{{ action.text }}</a>
     </span>

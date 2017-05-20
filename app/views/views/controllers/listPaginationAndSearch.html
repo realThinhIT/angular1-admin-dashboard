@@ -1,4 +1,5 @@
 <!--<div class="col-lg-12">-->
+<div class="row">
     <div class="col-lg-8">
         <form class="form-group">
             <div class="input-group">
@@ -14,7 +15,7 @@
             </div>
         </form>
 
-        <div class="col-lg-12">
+        <div style="color: grey; font-style: italic;">
             Showing <b>{{ controller.paging.pageSize }}</b> results ({{ controller.paging.pageSize * (controller.paging.currentPage - 1) }} - {{ (controller.paging.pageSize * controller.paging.currentPage) - 1 }}) of total <b>{{ (controller.paging.total) ? controller.paging.total : '(loading)..' }}</b>.
         </div>
     </div>
@@ -40,4 +41,5 @@
             <option value="500">500</option>
         </select> 
     </div>
+</div>
 <!--</div>-->
